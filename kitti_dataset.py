@@ -10,6 +10,7 @@ from kitti_dataset_utils import \
     pose_from_oxts_packet, read_calib_file, transform_from_rot_trans
 from utils.image import load_image
 from utils.pose import invert_pose_numpy
+from utils.transforms import to_tensor_transforms
 
 ########################################################################################################################
 
@@ -409,7 +410,8 @@ class KITTIDataset(Dataset):
 ########################################################################################################################
 if __name__ == "__main__":
     kitti_dataset = KITTIDataset(root_dir='/data/datasets/KITTI_raw', 
-                                file_list='/data/datasets/KITTI_raw/data_splits/eigen_zhou_files.txt', 
+                                file_list='/data/datasets/KITTI_raw/data_splits/eigen_zhou_files.txt',
+                                data_transform=to_tensor_transforms, 
                                 forward_context=1, 
                                 back_context=1,
                                 depth_type='velodyne',
