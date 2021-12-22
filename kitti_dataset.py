@@ -75,7 +75,7 @@ class KITTIDataset(Dataset):
         List of context strides
     """
     def __init__(self, root_dir, file_list, train=True,
-                 data_transform=None, depth_type=None, with_pose=False,
+                 data_transform=to_tensor_transforms, depth_type=None, with_pose=False,
                  back_context=0, forward_context=0, strides=(1,)):
         # Assertions
         backward_context = back_context
